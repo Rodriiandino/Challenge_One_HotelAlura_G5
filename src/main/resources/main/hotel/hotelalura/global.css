@@ -1,0 +1,91 @@
+.background-primary {
+   -fx-background-color: #FBF7EA;
+}
+
+.background-secondary {
+    -fx-background-color: #1F1E1C;
+}
+
+.background-tertiary {
+    -fx-background-color: #3D7A5D;
+}
+
+.input {
+    -fx-background-color: transparent;
+    -fx-border-color: #1F1E1C;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: #1F1E1C;
+    -fx-font-family: "Segoe UI";
+}
+
+Button {
+    -fx-background-color: #1F1E1C;
+    -fx-text-fill: #FBF7EA;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 18px;
+    -fx-border-radius: 15 15 15 15;
+    -fx-background-radius: 15 15 15 15;
+    -fx-cursor: hand;
+
+}
+
+.button-secondary {
+    -fx-background-color: #3D7A5D;
+    -fx-text-fill: #FBF7EA;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 18px;
+    -fx-border-radius: 8 0 0 0;
+    -fx-background-radius: 8 0 0 0;
+    -fx-cursor: hand;
+
+}
+
+Button:hover {
+    -fx-background-color: #2a2a27;
+    -fx-font-size: 20px;
+}
+
+
+.button-secondary:hover {
+    -fx-font-size: 20px;
+}
+
+.button-secondary:pressed {
+    -fx-background-color: #1F1E1C;
+}
+
+.button-tertiary {
+    -fx-background-color: #638A77;
+    -fx-text-fill: #FBF7EA;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 18px;
+    -fx-border-radius: 8 0 0 0;
+    -fx-background-radius: 8 0 0 0;
+    -fx-cursor: hand;
+}
+
+.button-tertiary:hover {
+    -fx-font-size: 20px;
+}
+
+.text {
+    -fx-text-fill: #1F1E1C;
+    -fx-font-weight: 800;
+    -fx-font-family: "Segoe UI";
+}
+
+.text-secondary {
+    -fx-text-fill: #FBF7EA;
+    -fx-font-weight: 800;
+    -fx-font-family: "Segoe UI";
+    -fx-alignment: center;
+}
+
+.img {
+    -fx-background-image: url("/main/hotel/hotelalura/src/assets/logo.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+}
+
+
