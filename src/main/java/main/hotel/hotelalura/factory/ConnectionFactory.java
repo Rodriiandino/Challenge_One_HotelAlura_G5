@@ -19,8 +19,9 @@ public class ConnectionFactory implements AutoCloseable {
         }
     }
 
-    // Método para obtener la conexión
-    public void getConnection() {
+    // Metodo para obtener la conexion
+    public Connection getConnection() {
+        return conexion;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class ConnectionFactory implements AutoCloseable {
                 conexion.close();
             }
         } catch (SQLException e) {
+            // TODO: handle exception
             e.printStackTrace();
         }
     }

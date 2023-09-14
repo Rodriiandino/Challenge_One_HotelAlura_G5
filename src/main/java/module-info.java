@@ -6,4 +6,6 @@ module main.hotel.hotelalura {
 
     opens main.hotel.hotelalura to javafx.fxml;
     exports main.hotel.hotelalura;
+    exports main.hotel.hotelalura.viewController;
+    opens main.hotel.hotelalura.viewController to javafx.fxml;
 }

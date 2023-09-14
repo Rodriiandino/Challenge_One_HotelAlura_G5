@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.HotelController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.HotelController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -127,7 +127,7 @@
                                     <HBox spacing="16.0">
                                        <children>
                                           <Button fx:id="btn_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="ENTRAR" />
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRATE" />
+                                          <Button fx:id="btn_register" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRATE" />
                                        </children>
                                     </HBox>
                                  </children>
