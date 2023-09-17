@@ -2,24 +2,19 @@ package main.hotel.hotelalura.controller;
 
 import main.hotel.hotelalura.dao.ReservaDAO;
 import main.hotel.hotelalura.factory.ConnectionFactory;
-
-import java.sql.Connection;
+import main.hotel.hotelalura.modelo.Reserva;
 
 public class ReservaController {
 
-    private ReservaDAO reservaDAO;
+    private final ReservaDAO reservaDAO;
 
     public ReservaController() {
-        try (var factory = new ConnectionFactory()) {
-            this.reservaDAO = new ReservaDAO(factory.getConnection());
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
+        var factory = new ConnectionFactory();
+        this.reservaDAO = new ReservaDAO(factory.getConnection());
     }
 
-    public void guardar() {
-        reservaDAO.guardar();
+    public void guardar(Reserva reserva) {
+        reservaDAO.guardar(reserva);
     }
 
     public void actualizar() {

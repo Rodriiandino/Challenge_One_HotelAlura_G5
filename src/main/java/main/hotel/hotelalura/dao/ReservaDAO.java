@@ -1,6 +1,8 @@
 package main.hotel.hotelalura.dao;
 
-import java.sql.Connection;
+import main.hotel.hotelalura.modelo.Reserva;
+
+import java.sql.*;
 
 public class ReservaDAO {
     Connection connection;
@@ -9,8 +11,32 @@ public class ReservaDAO {
         this.connection = connection;
     }
 
-    public void guardar() {
-        System.out.println("Guardando reserva...");
+    public void guardar(Reserva reserva) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "INSERT INTO RESERVAS "
+                        + "(fecha_entrada, fecha_salida, valor, forma_pago) "
+                        + "VALUES (?, ?, ?, ?)",
+                Statement.RETURN_GENERATED_KEYS)) {
+
+            try (statement) {
+                statement.setString(1, reserva.getFecha_entrada());
+                statement.setString(2, reserva.getFecha_salida());
+                statement.setDouble(3, reserva.getValor());
+                statement.setString(4, reserva.getForma_pago());
+
+                statement.execute();
+
+                try (ResultSet resultSet = statement.getGeneratedKeys()) {
+                    while (resultSet.next()) {
+                        reserva.setId(resultSet.getInt(1));
+                        System.out.printf("Fue insertada la reserva: %s%n", reserva);
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void actualizar() {

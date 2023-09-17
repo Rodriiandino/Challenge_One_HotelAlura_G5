@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.bookingController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -87,7 +87,7 @@
                                                       <Font size="26.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker blendMode="DARKEN" prefHeight="40.0" prefWidth="325.0" promptText="2023-08-23" style="-fx-border-style: 0;" styleClass="input" />
+                                                <DatePicker fx:id="input_dateIn" blendMode="DARKEN" editable="false" prefHeight="40.0" prefWidth="325.0" promptText="2023-08-23" style="-fx-border-style: 0;" styleClass="input" />
                                              </children>
                                           </VBox>
                                        </children>
@@ -104,7 +104,7 @@
                                                       <Font size="26.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker blendMode="DARKEN" prefHeight="40.0" prefWidth="325.0" promptText="2023-09-29" styleClass="input" />
+                                                <DatePicker fx:id="input_dateOut" blendMode="DARKEN" editable="false" prefHeight="40.0" prefWidth="325.0" promptText="2023-09-29" styleClass="input" />
                                              </children>
                                           </VBox>
                                        </children>
@@ -121,7 +121,7 @@
                                                       <Font size="26.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField prefHeight="40.0" prefWidth="325.0" promptText="123456" styleClass="input">
+                                                <TextField fx:id="input_value" prefHeight="40.0" prefWidth="325.0" promptText="123456" styleClass="input">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -142,7 +142,7 @@
                                                       <Font size="26.0" />
                                                    </font>
                                                 </Label>
-                                                <ChoiceBox prefHeight="40.0" prefWidth="332.0" styleClass="input">
+                                                <ChoiceBox fx:id="input_wayToPay" prefHeight="40.0" prefWidth="332.0" styleClass="input">
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
@@ -156,13 +156,18 @@
                                     </AnchorPane>
                                     <HBox prefHeight="60.0" spacing="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" text="REGISTRASE" />
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER" />
+                                          <Button fx:id="btn_register" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" text="REGISTRASE" />
+                                          <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets top="20.0" />
+                                          <Insets top="10.0" />
                                        </VBox.margin>
                                     </HBox>
+                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="575.0" text="Er" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <padding>
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

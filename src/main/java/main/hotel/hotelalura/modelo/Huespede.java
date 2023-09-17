@@ -76,6 +76,10 @@ public class Huespede {
         return id_reserva;
     }
 
+    public void setId(Integer id){
+        this.id = id;
+    }
+
     public void setNombre(String nombre){
         this.nombre = nombre;
     }

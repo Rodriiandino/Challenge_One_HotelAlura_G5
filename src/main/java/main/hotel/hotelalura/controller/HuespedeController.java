@@ -2,22 +2,19 @@ package main.hotel.hotelalura.controller;
 
 import main.hotel.hotelalura.dao.HuespedeDAO;
 import main.hotel.hotelalura.factory.ConnectionFactory;
+import main.hotel.hotelalura.modelo.Huespede;
 
 public class HuespedeController {
 
-        private HuespedeDAO huespedeDAO;
+        private final HuespedeDAO huespedeDAO;
 
         public HuespedeController() {
-            try (var factory = new ConnectionFactory()) {
-                this.huespedeDAO = new HuespedeDAO(factory.getConnection());
-            } catch (Exception e) {
-                // TODO: handle exception
-                e.printStackTrace();
-            }
+            var factory = new ConnectionFactory();
+            this.huespedeDAO = new HuespedeDAO(factory.getConnection());
         }
 
-        public void guardar() {
-            huespedeDAO.guardar();
+        public void guardar(Huespede huespede) {
+            huespedeDAO.guardar(huespede);
         }
 
         public void actualizar() {
