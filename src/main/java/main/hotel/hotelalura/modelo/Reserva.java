@@ -7,13 +7,6 @@ public class Reserva {
     private Double valor;
     private String forma_pago;
 
-    public Reserva(Integer id, String fecha_entrada, String fecha_salida, Double valor, String forma_pago) {
-        this.id = id;
-        this.fecha_entrada = fecha_entrada;
-        this.fecha_salida = fecha_salida;
-        this.valor = valor;
-        this.forma_pago = forma_pago;
-    }
 
     public Reserva(String fecha_entrada, String fecha_salida, Double valor, String forma_pago) {
         this.fecha_entrada = fecha_entrada;
@@ -22,21 +15,17 @@ public class Reserva {
         this.forma_pago = forma_pago;
     }
 
-    public Reserva(Integer id, String fecha_entrada, String fecha_salida, Double valor) {
-        this.id = id;
-        this.fecha_entrada = fecha_entrada;
-        this.fecha_salida = fecha_salida;
-        this.valor = valor;
+    @Override
+    public String toString() {
+        return "Reserva{" +
+                "id=" + id +
+                ", fecha_entrada='" + fecha_entrada + '\'' +
+                ", fecha_salida='" + fecha_salida + '\'' +
+                ", valor=" + valor +
+                ", forma_pago='" + forma_pago + '\'' +
+                '}';
     }
 
-    public Reserva(String fecha_entrada, String fecha_salida, Double valor) {
-        this.fecha_entrada = fecha_entrada;
-        this.fecha_salida = fecha_salida;
-        this.valor = valor;
-    }
-
-    public Reserva() {
-    }
     public Integer getId() {
         return id;
     }

@@ -43,8 +43,19 @@ public class ReservaDAO {
         System.out.println("Actualizando reserva...");
     }
 
-    public void eliminar() {
-        System.out.println("Eliminando reserva...");
+    public void eliminar(long id) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "DELETE FROM RESERVAS WHERE id = ?")) {
+            
+            try (statement) {
+                statement.setLong(1, id);
+                statement.execute();
+                System.out.printf("Fue eliminada la reserva con id: %d%n", id);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void buscar() {
@@ -53,5 +64,21 @@ public class ReservaDAO {
 
     public void listar() {
         System.out.println("Listando reservas...");
+    }
+
+
+    public int getLastReservaId() {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT MAX(id) FROM RESERVAS")) {
+
+            try (statement) {
+                ResultSet resultSet = statement.executeQuery();
+                resultSet.next();
+                return resultSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

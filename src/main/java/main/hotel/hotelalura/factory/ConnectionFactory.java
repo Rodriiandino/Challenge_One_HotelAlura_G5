@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory implements AutoCloseable {
-    private final Connection conexion;
+    private final Connection connection;
 
     public ConnectionFactory() {
         String url = "jdbc:mysql://localhost:3306/hotelDB?useTimezone=true&serverTimezone=UTC";
@@ -13,26 +13,24 @@ public class ConnectionFactory implements AutoCloseable {
         String password = "hotelDB123456";
 
         try {
-            conexion = DriverManager.getConnection(url, usuario, password);
+            connection = DriverManager.getConnection(url, usuario, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    // Metodo para obtener la conexion
     public Connection getConnection() {
-        return conexion;
+        return connection;
     }
 
     @Override
     public void close() {
         try {
-            if (conexion != null) {
-                conexion.close();
+            if (connection != null) {
+                connection.close();
             }
         } catch (SQLException e) {
-            // TODO: handle exception
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

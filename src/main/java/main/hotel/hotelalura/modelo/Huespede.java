@@ -1,5 +1,6 @@
 package main.hotel.hotelalura.modelo;
 
+
 public class Huespede {
     private Integer id;
     private String nombre;
@@ -8,6 +9,15 @@ public class Huespede {
     private String nacionalidad;
     private String telefono;
     private Integer id_reserva;
+
+    public Huespede(String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono, Integer id_reserva) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fecha_nacimiento = fecha_nacimiento;
+        this.nacionalidad = nacionalidad;
+        this.telefono = telefono;
+        this.id_reserva = id_reserva;
+    }
 
     public Huespede(Integer id, String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono, Integer id_reserva) {
         this.id = id;
@@ -19,33 +29,17 @@ public class Huespede {
         this.id_reserva = id_reserva;
     }
 
-    public Huespede(String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono, Integer id_reserva) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-        this.id_reserva = id_reserva;
-    }
-
-    public Huespede(Integer id, String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-    }
-
-    public Huespede(String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-    }
-
-    public Huespede() {
+    @Override
+    public String toString() {
+        return "Huespede{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", fecha_nacimiento='" + fecha_nacimiento + '\'' +
+                ", nacionalidad='" + nacionalidad + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", id_reserva=" + id_reserva +
+                '}';
     }
 
     public Integer getId() {
@@ -103,5 +97,6 @@ public class Huespede {
     public void setId_reserva(Integer id_reserva){
         this.id_reserva = id_reserva;
     }
+
 }
 

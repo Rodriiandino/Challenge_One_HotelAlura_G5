@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.hostController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -116,12 +116,12 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <TextField prefHeight="35.0" prefWidth="100.0" promptText="Rodrigo" styleClass="input">
+                                                <TextField fx:id="input_name" prefHeight="35.0" prefWidth="100.0" promptText="Rodrigo" styleClass="input">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField prefHeight="35.0" prefWidth="130.0" promptText="Andino" styleClass="input" GridPane.columnIndex="1">
+                                                <TextField fx:id="input_lastName" prefHeight="35.0" prefWidth="130.0" promptText="Andino" styleClass="input" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -172,8 +172,8 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <DatePicker blendMode="DARKEN" prefHeight="35.0" prefWidth="250.0" styleClass="input" />
-                                                <ChoiceBox prefHeight="35.0" prefWidth="265.0" styleClass="input" GridPane.columnIndex="1" />
+                                                <DatePicker fx:id="input_birth" blendMode="DARKEN" editable="false" prefHeight="35.0" prefWidth="250.0" promptText="2003-02-02" styleClass="input" />
+                                                <ChoiceBox fx:id="input_nationality" prefHeight="35.0" prefWidth="265.0" styleClass="input" GridPane.columnIndex="1" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -220,8 +220,8 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <TextField prefHeight="35.0" prefWidth="100.0" promptText="123456789" styleClass="input" />
-                                                <TextField prefHeight="35.0" prefWidth="130.0" promptText="26953" styleClass="input" GridPane.columnIndex="1" />
+                                                <TextField fx:id="input_number" prefHeight="35.0" prefWidth="100.0" promptText="123456789" styleClass="input" />
+                                                <TextField fx:id="input_booking" editable="false" prefHeight="35.0" prefWidth="130.0" promptText="26953" styleClass="input" GridPane.columnIndex="1" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -231,10 +231,15 @@
                                     </AnchorPane>
                                     <HBox spacing="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRASE" />
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER" />
+                                          <Button fx:id="btn_register" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRASE" />
+                                          <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER" />
                                        </children>
                                     </HBox>
+                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="659.0" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <padding>
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

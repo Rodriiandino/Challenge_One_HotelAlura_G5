@@ -21,8 +21,8 @@ public class ReservaController {
         reservaDAO.actualizar();
     }
 
-    public void eliminar() {
-        reservaDAO.eliminar();
+    public void eliminar(long id) {
+        reservaDAO.eliminar(id);
     }
 
     public void buscar() {
@@ -33,5 +33,8 @@ public class ReservaController {
         reservaDAO.listar();
     }
 
+    public int getLastReservaId() {
+        return reservaDAO.getLastReservaId();
+    }
 
 }

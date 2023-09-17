@@ -163,7 +163,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="575.0" text="Er" textFill="RED">
+                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="575.0" textFill="RED">
                                        <VBox.margin>
                                           <Insets top="5.0" />
                                        </VBox.margin>

@@ -4,10 +4,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.Callback;
 import main.hotel.hotelalura.controller.ReservaController;
-import main.hotel.hotelalura.dao.ReservaDAO;
 import main.hotel.hotelalura.modelo.Reserva;
 import main.hotel.hotelalura.utils.ScreenTransitionUtil;
 import main.hotel.hotelalura.utils.WayToPay;
+import main.hotel.hotelalura.utils.validator;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class bookingController implements Initializable {
+public class bookingController implements Initializable, validator {
 
     public DatePicker input_dateIn;
     public DatePicker input_dateOut;
@@ -32,6 +32,7 @@ public class bookingController implements Initializable {
     }
 
     private void setupListeners() {
+        validateFields();
         addValidators();
 
         input_dateIn.setDayCellFactory(getDayCellFactory());
@@ -57,10 +58,7 @@ public class bookingController implements Initializable {
         ReservaController reservaController = new ReservaController();
         reservaController.guardar(reserva);
 
-        System.out.println("Data de entrada: " + dateIn);
-        System.out.println("Data de saída: " + dateOut);
-        System.out.println("Valor: " + value);
-        System.out.println("Forma de pago: " + wayToPay);
+        ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/host-view.fxml", btn_register);
     }
 
 

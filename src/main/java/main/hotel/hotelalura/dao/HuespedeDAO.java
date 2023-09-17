@@ -3,6 +3,8 @@ package main.hotel.hotelalura.dao;
 import main.hotel.hotelalura.modelo.Huespede;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HuespedeDAO {
 
@@ -40,9 +42,6 @@ public class HuespedeDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
-        System.out.println("Guardando huespede...");
     }
 
     public void actualizar() {
@@ -57,7 +56,25 @@ public class HuespedeDAO {
         System.out.println("Buscando huespede...");
     }
 
-    public void listar() {
-        System.out.println("Listando huespedes...");
+    public List<Huespede> listar() {
+        List<Huespede> huespedes = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM huespedes")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    huespedes.add(new Huespede(
+                            resultSet.getInt("id"),
+                            resultSet.getString("nombre"),
+                            resultSet.getString("apellido"),
+                            resultSet.getString("fecha_nacimiento"),
+                            resultSet.getString("nacionalidad"),
+                            resultSet.getString("telefono"),
+                            resultSet.getInt("id_reserva")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return huespedes;
     }
 }

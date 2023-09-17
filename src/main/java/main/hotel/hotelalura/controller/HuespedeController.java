@@ -4,6 +4,8 @@ import main.hotel.hotelalura.dao.HuespedeDAO;
 import main.hotel.hotelalura.factory.ConnectionFactory;
 import main.hotel.hotelalura.modelo.Huespede;
 
+import java.util.List;
+
 public class HuespedeController {
 
         private final HuespedeDAO huespedeDAO;
@@ -29,7 +31,7 @@ public class HuespedeController {
             huespedeDAO.buscar();
         }
 
-        public void listar() {
-            huespedeDAO.listar();
+        public List<Huespede> listar() {
+            return huespedeDAO.listar();
         }
 }
