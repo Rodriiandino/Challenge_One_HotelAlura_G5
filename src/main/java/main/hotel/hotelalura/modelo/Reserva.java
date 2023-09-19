@@ -1,6 +1,8 @@
 package main.hotel.hotelalura.modelo;
 
-public class Reserva {
+import main.hotel.hotelalura.utils.EntidadHotel;
+
+public class Reserva implements EntidadHotel {
     private Integer id;
     private String fecha_entrada;
     private String fecha_salida;

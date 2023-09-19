@@ -2,6 +2,7 @@ package main.hotel.hotelalura.viewController;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -10,47 +11,38 @@ import main.hotel.hotelalura.controller.HuespedeController;
 import main.hotel.hotelalura.controller.ReservaController;
 import main.hotel.hotelalura.modelo.Huespede;
 import main.hotel.hotelalura.modelo.Reserva;
+import main.hotel.hotelalura.utils.EntidadHotel;
 import main.hotel.hotelalura.utils.ScreenTransitionUtil;
 import main.hotel.hotelalura.utils.TableDataType;
 
-import java.util.Arrays;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import main.hotel.hotelalura.modelo.Huespede;
-import main.hotel.hotelalura.modelo.Reserva;
-import main.hotel.hotelalura.utils.WayToPay;
-
-import java.util.List;
-
-public class infoTableController {
+public class infoTableController implements Initializable {
     public Button btn_host;
     public Button btn_booking;
     public Button btn_back;
     public Button btn_edit;
     public Button btn_remove;
 
-    public TableView table;
+    public TableView<EntidadHotel> table;
     private HuespedeController huespedeController;
     private ReservaController reservaController;
-    private ObservableList<Huespede> huespedeList;
-    private ObservableList<Reserva> reservaList;
+    private ObservableList<EntidadHotel> huespedeList;
+    private ObservableList<EntidadHotel> reservaList;
     private TableDataType currentTableDataType = TableDataType.HUESPEDE;
 
-
-    public void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         setupListeners();
     }
 
     private void setupListeners() {
-        createColumns();
         huespedeController = new HuespedeController();
         reservaController = new ReservaController();
 
+        createColumns();
         listar();
 
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -87,18 +79,17 @@ public class infoTableController {
         System.out.println("Selected Reserva: " + selectedReserva);
     }
 
-
     private void createColumns() {
         table.getColumns().clear();
 
         if (currentTableDataType == TableDataType.HUESPEDE) {
-            TableColumn<Huespede, Integer> idColumn;
-            TableColumn<Huespede, String> nombreColumn;
-            TableColumn<Huespede, String> apellidoColumn;
-            TableColumn<Huespede, String> fechaNacimientoColumn;
-            TableColumn<Huespede, String> nacionalidadColumn;
-            TableColumn<Huespede, String> telefonoColumn;
-            TableColumn<Huespede, Integer> idReservaColumn;
+            TableColumn<EntidadHotel, Integer> idColumn;
+            TableColumn<EntidadHotel, String> nombreColumn;
+            TableColumn<EntidadHotel, String> apellidoColumn;
+            TableColumn<EntidadHotel, String> fechaNacimientoColumn;
+            TableColumn<EntidadHotel, String> nacionalidadColumn;
+            TableColumn<EntidadHotel, String> telefonoColumn;
+            TableColumn<EntidadHotel, Integer> idReservaColumn;
 
             idColumn = new TableColumn<>("ID");
             nombreColumn = new TableColumn<>("Nombre");
@@ -116,14 +107,20 @@ public class infoTableController {
             telefonoColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
             idReservaColumn.setCellValueFactory(new PropertyValueFactory<>("id_reserva"));
 
-            table.getColumns().addAll(idColumn, nombreColumn, apellidoColumn, fechaNacimientoColumn, nacionalidadColumn, telefonoColumn, idReservaColumn);
+            table.getColumns().add(idColumn);
+            table.getColumns().add(nombreColumn);
+            table.getColumns().add(apellidoColumn);
+            table.getColumns().add(fechaNacimientoColumn);
+            table.getColumns().add(nacionalidadColumn);
+            table.getColumns().add(telefonoColumn);
+            table.getColumns().add(idReservaColumn);
 
         } else if (currentTableDataType == TableDataType.RESERVA) {
-            TableColumn<Reserva, Integer> idColumn;
-            TableColumn<Reserva, String> fechaEntradaColumn;
-            TableColumn<Reserva, String> fechaSalidaColumn;
-            TableColumn<Reserva, Double> valorColumn;
-            TableColumn<Reserva, String> formaPagoColumn;
+            TableColumn<EntidadHotel, Integer> idColumn;
+            TableColumn<EntidadHotel, String> fechaEntradaColumn;
+            TableColumn<EntidadHotel, String> fechaSalidaColumn;
+            TableColumn<EntidadHotel, Double> valorColumn;
+            TableColumn<EntidadHotel, String> formaPagoColumn;
 
             idColumn = new TableColumn<>("ID");
             fechaEntradaColumn = new TableColumn<>("Fecha de Entrada");
@@ -137,7 +134,11 @@ public class infoTableController {
             valorColumn.setCellValueFactory(new PropertyValueFactory<>("valor"));
             formaPagoColumn.setCellValueFactory(new PropertyValueFactory<>("forma_pago"));
 
-            table.getColumns().addAll(idColumn, fechaEntradaColumn, fechaSalidaColumn, valorColumn, formaPagoColumn);
+            table.getColumns().add(idColumn);
+            table.getColumns().add(fechaEntradaColumn);
+            table.getColumns().add(fechaSalidaColumn);
+            table.getColumns().add(valorColumn);
+            table.getColumns().add(formaPagoColumn);
         }
     }
 
@@ -165,15 +166,20 @@ public class infoTableController {
     }
 
     public void changeToBooking() {
+        btn_booking.setStyle("-fx-background-color: #3D7A5D");
+        btn_host.setStyle("-fx-background-color: #638A77");
         currentTableDataType = TableDataType.RESERVA;
         createColumns();
         listar();
     }
 
     public void changeToHost() {
+        btn_host.setStyle("-fx-background-color: #3D7A5D");
+        btn_booking.setStyle("-fx-background-color: #638A77");
         currentTableDataType = TableDataType.HUESPEDE;
         createColumns();
         listar();
     }
+
 
 }

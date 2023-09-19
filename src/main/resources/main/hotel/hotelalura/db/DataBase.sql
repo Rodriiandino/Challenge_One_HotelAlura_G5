@@ -23,8 +23,6 @@ CREATE TABLE IF NOT EXISTS huespedes (
     FOREIGN KEY (id_reserva) REFERENCES reservas(id)
 );
 
-
-
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT NOT NULL AUTO_INCREMENT,
     nombre_usuario VARCHAR(255) NOT NULL,
@@ -35,6 +33,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     PRIMARY KEY (id)
 );
 
+ALTER TABLE usuarios ADD column activo BOOLEAN NOT NULL DEFAULT FALSE;
+
 -- Usuario por defecto
-INSERT INTO usuarios (nombre_usuario, nombre, apellido, email, password)
-VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', 'admin');
+INSERT INTO usuarios (nombre_usuario, nombre, apellido, email, password, activo)
+VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', 'admin', true);

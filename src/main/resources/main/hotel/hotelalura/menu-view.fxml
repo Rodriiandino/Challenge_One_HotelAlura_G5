@@ -60,7 +60,7 @@
                                              <children>
                                                 <AnchorPane prefHeight="200.0">
                                                    <children>
-                                                      <Button fx:id="btn_booking" mnemonicParsing="false" text="Registro de Reservas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <Button fx:id="btn_booking" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Registro de Reservas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <graphic>
                                                             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
@@ -73,7 +73,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane prefHeight="200.0">
                                                    <children>
-                                                      <Button fx:id="btn_infoTable" mnemonicParsing="false" text="Busqueda" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <Button fx:id="btn_infoTable" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Busqueda" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <graphic>
                                                             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
@@ -86,6 +86,23 @@
                                                 </AnchorPane>
                                              </children>
                                           </VBox>
+                                          <AnchorPane prefHeight="48.0" prefWidth="69.0">
+                                             <children>
+                                                <VBox layoutX="8.0" layoutY="233.0" prefHeight="90.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="200.0">
+                                                         <children>
+                                                            <Button fx:id="btn_exit" mnemonicParsing="false" prefHeight="51.0" prefWidth="69.0" style="-fx-font-size: 27; -fx-background-radius: 0 10 10 0;" text="«" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <font>
+                                                                  <Font size="25.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                  </children>

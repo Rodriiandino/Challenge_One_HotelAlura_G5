@@ -1,7 +1,9 @@
 package main.hotel.hotelalura.modelo;
 
 
-public class Huespede {
+import main.hotel.hotelalura.utils.EntidadHotel;
+
+public class Huespede implements EntidadHotel {
     private Integer id;
     private String nombre;
     private String apellido;
