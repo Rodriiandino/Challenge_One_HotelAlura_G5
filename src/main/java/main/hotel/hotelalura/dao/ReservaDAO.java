@@ -3,6 +3,8 @@ package main.hotel.hotelalura.dao;
 import main.hotel.hotelalura.modelo.Reserva;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReservaDAO {
     Connection connection;
@@ -62,8 +64,24 @@ public class ReservaDAO {
         System.out.println("Buscando reserva...");
     }
 
-    public void listar() {
-        System.out.println("Listando reservas...");
+    public List<Reserva> listar() {
+        List<Reserva> reservas = new ArrayList<>();
+        try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM reservas")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    reservas.add(new Reserva(
+                            resultSet.getInt("id"),
+                            resultSet.getString("fecha_entrada"),
+                            resultSet.getString("fecha_salida"),
+                            resultSet.getDouble("valor"),
+                            resultSet.getString("forma_pago")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reservas;
     }
 
 

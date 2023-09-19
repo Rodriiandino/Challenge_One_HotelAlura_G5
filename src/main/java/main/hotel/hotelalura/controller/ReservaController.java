@@ -4,6 +4,8 @@ import main.hotel.hotelalura.dao.ReservaDAO;
 import main.hotel.hotelalura.factory.ConnectionFactory;
 import main.hotel.hotelalura.modelo.Reserva;
 
+import java.util.List;
+
 public class ReservaController {
 
     private final ReservaDAO reservaDAO;
@@ -29,8 +31,8 @@ public class ReservaController {
         reservaDAO.buscar();
     }
 
-    public void listar() {
-        reservaDAO.listar();
+    public List<Reserva> listar() {
+        return reservaDAO.listar();
     }
 
     public int getLastReservaId() {

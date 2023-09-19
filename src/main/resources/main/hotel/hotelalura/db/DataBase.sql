@@ -35,5 +35,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
     PRIMARY KEY (id)
 );
 
+-- Usuario por defecto
 INSERT INTO usuarios (nombre_usuario, nombre, apellido, email, password)
 VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', 'admin');

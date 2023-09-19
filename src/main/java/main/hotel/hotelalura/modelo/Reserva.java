@@ -15,6 +15,15 @@ public class Reserva {
         this.forma_pago = forma_pago;
     }
 
+    public Reserva(Integer id, String fecha_entrada, String fecha_salida, Double valor, String forma_pago) {
+        this.id = id;
+        this.fecha_entrada = fecha_entrada;
+        this.fecha_salida = fecha_salida;
+        this.valor = valor;
+        this.forma_pago = forma_pago;
+    }
+
+
     @Override
     public String toString() {
         return "Reserva{" +

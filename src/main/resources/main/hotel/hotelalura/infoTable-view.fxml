@@ -79,8 +79,9 @@
                         </TableView>
                         <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="1000.0" spacing="10.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Editar" />
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Eliminar" />
+                              <Button fx:id="btn_edit" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Editar" />
+                              <Button fx:id="btn_remove" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Eliminar" />
+                              <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Volver" />
                            </children>
                            <padding>
                               <Insets right="20.0" />
