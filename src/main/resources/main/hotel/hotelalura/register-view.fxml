@@ -68,7 +68,7 @@
                            <children>
                               <VBox prefWidth="448.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label prefHeight="43.0" prefWidth="258.0" styleClass="text" text="REGISTRARSE">
+                                    <Label prefHeight="43.0" prefWidth="526.0" styleClass="text" text="REGISTRAR USUARIO">
                                        <font>
                                           <Font size="36.0" />
                                        </font>
@@ -115,12 +115,12 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <TextField prefHeight="35.0" prefWidth="100.0" promptText="Rodrigo" styleClass="input">
+                                                <TextField fx:id="input_name" prefHeight="35.0" prefWidth="100.0" promptText="Rodrigo" styleClass="input">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField prefHeight="35.0" prefWidth="130.0" promptText="Andino" styleClass="input" GridPane.columnIndex="1">
+                                                <TextField fx:id="input_lastName" prefHeight="35.0" prefWidth="130.0" promptText="Andino" styleClass="input" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -143,7 +143,7 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <Label styleClass="text" text="GMAIL">
+                                                <Label styleClass="text" text="EMAIL">
                                                    <font>
                                                       <Font size="26.0" />
                                                    </font>
@@ -171,12 +171,12 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <TextField prefHeight="35.0" prefWidth="100.0" promptText="Andinorodrigo@" styleClass="input">
+                                                <TextField fx:id="input_email" prefHeight="35.0" prefWidth="100.0" promptText="Andinorodrigo@" styleClass="input">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField prefHeight="35.0" prefWidth="130.0" promptText="AndinoRodrigo" styleClass="input" GridPane.columnIndex="1">
+                                                <TextField fx:id="input_user" prefHeight="35.0" prefWidth="130.0" promptText="AndinoRodrigo" styleClass="input" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -227,12 +227,12 @@
                                                 <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <PasswordField prefHeight="35.0" prefWidth="100.0" promptText="************" styleClass="input">
+                                                <PasswordField fx:id="input_password" prefHeight="35.0" prefWidth="100.0" promptText="************" styleClass="input">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
                                                 </PasswordField>
-                                                <PasswordField prefHeight="35.0" prefWidth="130.0" promptText="************" styleClass="input" GridPane.columnIndex="1">
+                                                <PasswordField fx:id="input_repeatPassword" prefHeight="35.0" prefWidth="130.0" promptText="************" styleClass="input" GridPane.columnIndex="1">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -246,10 +246,15 @@
                                     </AnchorPane>
                                     <HBox spacing="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRASE" />
-                                          <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER"  />
+                                          <Button fx:id="btn_register" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRASE" />
+                                          <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="VOLVER" />
                                        </children>
                                     </HBox>
+                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="585.0" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <padding>
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

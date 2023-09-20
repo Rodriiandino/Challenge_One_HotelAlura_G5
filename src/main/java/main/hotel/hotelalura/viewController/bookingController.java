@@ -42,12 +42,12 @@ public class bookingController implements Initializable, validator {
         input_wayToPay.getItems().addAll(wayToPayList);
         input_wayToPay.setValue(WayToPay.CREDIT_CARD);
 
-        btn_back.setOnAction(e -> ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/menu-view.fxml", btn_back));
         btn_register.setOnAction(e -> register());
+        btn_back.setOnAction(e -> ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/menu-view.fxml", btn_back));
     }
 
 
-    public void register() {
+    private void register() {
         String dateIn = input_dateIn.getValue().toString();
         String dateOut = input_dateOut.getValue().toString();
         String value = input_value.getText();
@@ -62,7 +62,8 @@ public class bookingController implements Initializable, validator {
     }
 
 
-    private void validateFields() {
+    @Override
+    public void validateFields() {
         boolean isDateInValid = input_dateIn.getValue() != null;
         boolean isDateOutValid = input_dateOut.getValue() != null;
         boolean isValueValid = !input_value.getText().isEmpty() && input_value.getText().matches("\\d+(\\.\\d+)?");
@@ -75,7 +76,6 @@ public class bookingController implements Initializable, validator {
         else if (isDateInAfterDateOut) text_error.setText("Fecha de entrada no puede ser después de la fecha de salida");
         else if (!isValueValid) text_error.setText("Valor inválido (solo números)");
         else if (!isWayToPayValid) text_error.setText("Forma de pago inválida");
-
         else text_error.setText("");
 
         boolean allFieldsValid = isDateInValid && isDateOutValid && isValueValid && isWayToPayValid && !isDateInAfterDateOut;
@@ -83,7 +83,8 @@ public class bookingController implements Initializable, validator {
     }
 
 
-    private void addValidators() {
+    @Override
+    public void addValidators() {
         input_dateIn.valueProperty().addListener((observable, oldValue, newValue) -> validateFields());
         input_dateOut.valueProperty().addListener((observable, oldValue, newValue) -> validateFields());
         input_value.textProperty().addListener((observable, oldValue, newValue) -> validateFields());

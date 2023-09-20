@@ -13,8 +13,6 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    public Button btn_register;
-
     public Button btn_in;
 
     private UsuarioController usuarioController;
@@ -28,10 +26,6 @@ public class LoginController implements Initializable {
         usuarioController = new UsuarioController();
 
         btn_in.setOnAction(event -> login());
-
-        btn_register.setOnAction(event -> {
-            ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/register-view.fxml", btn_register);
-        });
     }
 
     private void login() {

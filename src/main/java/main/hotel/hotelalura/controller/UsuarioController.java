@@ -4,6 +4,8 @@ import main.hotel.hotelalura.dao.UsuarioDAO;
 import main.hotel.hotelalura.factory.ConnectionFactory;
 import main.hotel.hotelalura.modelo.Usuario;
 
+import java.util.List;
+
 public class UsuarioController {
 
     private final UsuarioDAO usuarioDAO;
@@ -23,5 +25,13 @@ public class UsuarioController {
 
     public void eliminar() {
         usuarioDAO.eliminar();
+    }
+
+    public void actualizar() {
+        usuarioDAO.actualizar();
+    }
+
+    public List<String> listarEmails() {
+        return usuarioDAO.listarEmails();
     }
 }

@@ -2,18 +2,17 @@ package main.hotel.hotelalura.modelo;
 
 public class Usuario {
     private Integer id;
-    private String nombre_usuario;
     private String nombre;
+    private String nombre_usuario;
     private String apellido;
     private String email;
     private String password;
-    private boolean activo;
 
-    public Usuario(String nombre_usuario, String nombre, String apellido, String email, String password) {
-        this.nombre_usuario = nombre_usuario;
+    public Usuario(String nombre, String apellido, String email, String nombre_usuario, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
+        this.nombre_usuario = nombre_usuario;
         this.password = password;
     }
 
@@ -63,12 +62,5 @@ public class Usuario {
         return password;
     }
 
-    public boolean getActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
 
 }

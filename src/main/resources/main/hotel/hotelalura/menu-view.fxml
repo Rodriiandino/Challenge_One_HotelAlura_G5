@@ -44,25 +44,20 @@
                            <children>
                               <Pane layoutX="8.0" layoutY="48.0" prefHeight="200.0" styleClass="background-secondary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <ImageView disable="true" fitHeight="300.0" fitWidth="289.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@src/assets/logo.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="207.0" fitWidth="298.0" layoutX="7.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@src/assets/plants-2.png" />
-                                       </image>
-                                    </ImageView>
                                     <AnchorPane prefHeight="520.0" prefWidth="300.0">
                                        <children>
-                                          <VBox layoutX="8.0" layoutY="233.0" prefHeight="90.0" prefWidth="300.0" AnchorPane.bottomAnchor="209.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0">
+                                          <ImageView fitHeight="207.0" fitWidth="298.0" layoutX="4.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@src/assets/plants-2.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox layoutX="8.0" layoutY="199.0" prefHeight="132.0" prefWidth="300.0" AnchorPane.bottomAnchor="189.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="199.0">
                                              <children>
-                                                <AnchorPane prefHeight="200.0">
+                                                <AnchorPane prefHeight="170.0">
                                                    <children>
                                                       <Button fx:id="btn_booking" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Registro de Reservas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <graphic>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@src/assets/icon.png" />
                                                                </image>
@@ -71,13 +66,26 @@
                                                       </Button>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane prefHeight="200.0">
+                                                <AnchorPane prefHeight="170.0">
                                                    <children>
                                                       <Button fx:id="btn_infoTable" mnemonicParsing="false" style="-fx-background-radius: 0;" text="Busqueda" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <graphic>
-                                                            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>
                                                                   <Image url="@src/assets/icon-2.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="170.0">
+                                                   <children>
+                                                      <Button fx:id="btn_addUser" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-background-color: #00000000;" text="Registrar Usuario" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <graphic>
+                                                            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@src/assets/add-user.png" />
                                                                </image>
                                                             </ImageView>
                                                          </graphic>
@@ -103,6 +111,11 @@
                                                 </VBox>
                                              </children>
                                           </AnchorPane>
+                                          <ImageView disable="true" fitHeight="266.0" fitWidth="256.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@src/assets/logo.png" />
+                                             </image>
+                                          </ImageView>
                                        </children>
                                     </AnchorPane>
                                  </children>

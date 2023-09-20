@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
@@ -84,7 +83,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField prefHeight="35.0" promptText="AndinoRodrigo" styleClass="input">
+                                    <TextField prefHeight="35.0" promptText="admin" styleClass="input">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -100,7 +99,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField prefHeight="35.0" promptText="Andinorodrigo03@" styleClass="input">
+                                    <TextField prefHeight="35.0" promptText="admin@gmail.com" styleClass="input">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -116,7 +115,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField prefHeight="35.0" promptText="************" styleClass="input">
+                                    <PasswordField prefHeight="35.0" promptText="admin" styleClass="input">
                                        <VBox.margin>
                                           <Insets bottom="25.0" right="190.0" />
                                        </VBox.margin>
@@ -124,12 +123,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </PasswordField>
-                                    <HBox spacing="16.0">
-                                       <children>
-                                          <Button fx:id="btn_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="ENTRAR" />
-                                          <Button fx:id="btn_register" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="REGISTRATE" />
-                                       </children>
-                                    </HBox>
+                                    <Button fx:id="btn_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="325.0" text="ENTRAR" />
                                  </children>
                                  <padding>
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

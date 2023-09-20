@@ -42,8 +42,8 @@ public class hostController implements Initializable, validator {
     }
 
     private void register() {
-        String name = input_name.getText();
-        String lastName = input_lastName.getText();
+        String name = input_name.getText().toLowerCase();
+        String lastName = input_lastName.getText().toLowerCase();
         String birthDay = input_birth.getValue().toString();
         String nationality = input_nationality.getValue().toString();
         String number = input_number.getText();
@@ -62,14 +62,15 @@ public class hostController implements Initializable, validator {
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/booking-view.fxml", btn_back);
     }
 
-    private void validateFields() {
-        boolean isNameValid = !input_name.getText().isEmpty();
-        boolean isLastNameValid = !input_lastName.getText().isEmpty();
+    @Override
+    public void validateFields() {
+        boolean isNameValid = !input_name.getText().isEmpty() && input_name.getText().length() > 3 && input_name.getText().length() < 20;
+        boolean isLastNameValid = !input_lastName.getText().isEmpty() && input_lastName.getText().length() > 3 && input_lastName.getText().length() < 20;
         boolean isBirthValid = input_birth.getValue() != null;
         boolean isNumberValid = !input_number.getText().isEmpty() && input_number.getText().matches("[0-9]+");
 
-        if (!isNameValid) text_error.setText("El nombre no puede estar vacío");
-        else if (!isLastNameValid) text_error.setText("El apellido no puede estar vacío");
+        if (!isNameValid) text_error.setText("Nombre invalido (min 3 caracteres, max 20) y no puede estar vacio");
+        else if (!isLastNameValid) text_error.setText("Apellido invalido (min 3 caracteres, max 20) y no puede estar vacio");
         else if (!isBirthValid) text_error.setText("La fecha de nacimiento no puede estar vacía");
         else if (!isNumberValid) text_error.setText("El número de teléfono no puede estar vacío y debe ser numérico");
         else text_error.setText("");
@@ -78,7 +79,8 @@ public class hostController implements Initializable, validator {
         btn_register.setDisable(!allFieldsValid);
     }
 
-    private void addValidators() {
+    @Override
+    public void addValidators() {
         input_name.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
         input_lastName.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
         input_birth.valueProperty().addListener((observable, oldValue, newValue) -> validateFields());

@@ -28,13 +28,12 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nombre_usuario VARCHAR(255) NOT NULL,
     nombre VARCHAR(255) NOT NULL,
     apellido VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
-ALTER TABLE usuarios ADD column activo BOOLEAN NOT NULL DEFAULT FALSE;
 
 -- Usuario por defecto
-INSERT INTO usuarios (nombre_usuario, nombre, apellido, email, password, activo)
-VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', 'admin', true);
+INSERT INTO usuarios (nombre_usuario, nombre, apellido, email, password)
+VALUES ('admin', 'admin', 'admin', 'admin@gmail.com', 'admin');

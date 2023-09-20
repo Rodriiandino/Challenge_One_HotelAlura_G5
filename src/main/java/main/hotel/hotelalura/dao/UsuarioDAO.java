@@ -3,6 +3,8 @@ package main.hotel.hotelalura.dao;
 import main.hotel.hotelalura.modelo.Usuario;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAO {
     Connection connection;
@@ -11,7 +13,6 @@ public class UsuarioDAO {
         this.connection = connection;
     }
 
-
     public void login() {
         System.out.println("Iniciando sesión...");
     }
@@ -19,14 +20,14 @@ public class UsuarioDAO {
     public void guardar(Usuario usuario) {
         try(PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO usuarios "
-                        + "(nombre_usuario, nombre, apellido, email, password)"
+                        + "(nombre, apellido, email, nombre_usuario, password)"
                         + "VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             try (statement) {
-                statement.setString(1, "nombre_usuario");
-                statement.setString(2, "nombre");
-                statement.setString(3, "apellido");
-                statement.setString(4, "email");
-                statement.setString(5, "password");
+                statement.setString(1, usuario.getNombre());
+                statement.setString(2, usuario.getApellido());
+                statement.setString(3, usuario.getEmail());
+                statement.setString(4, usuario.getNombre_usuario());
+                statement.setString(5, usuario.getPassword());
 
                 statement.execute();
 
@@ -44,5 +45,24 @@ public class UsuarioDAO {
 
     public void eliminar() {
         System.out.println("Eliminando usuario...");
+    }
+
+    public void actualizar() {
+        System.out.println("Actualizando usuario...");
+    }
+
+    public List<String> listarEmails() {
+        List<String> emails = new  ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT email FROM usuarios")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    emails.add(resultSet.getString("email"));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return emails;
     }
 }

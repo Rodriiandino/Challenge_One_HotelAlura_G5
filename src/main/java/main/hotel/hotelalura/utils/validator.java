@@ -2,8 +2,8 @@ package main.hotel.hotelalura.utils;
 
 public interface validator {
 
-    private void addValidators() {}
+    public void addValidators();
 
-    private void validateFields() {}
+    public void validateFields();
 }
 
