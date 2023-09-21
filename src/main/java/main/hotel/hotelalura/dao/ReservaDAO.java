@@ -13,7 +13,7 @@ public class ReservaDAO {
         this.connection = connection;
     }
 
-    public void guardar(Reserva reserva) {
+    public void save(Reserva reserva) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO RESERVAS "
                         + "(fecha_entrada, fecha_salida, valor, forma_pago) "
@@ -41,14 +41,13 @@ public class ReservaDAO {
         }
     }
 
-    public void actualizar() {
+    public void update() {
         System.out.println("Actualizando reserva...");
     }
 
-    public void eliminar(long id) {
+    public void delete(Integer id) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "DELETE FROM RESERVAS WHERE id = ?")) {
-            
             try (statement) {
                 statement.setLong(1, id);
                 statement.execute();
@@ -60,11 +59,11 @@ public class ReservaDAO {
         }
     }
 
-    public void buscar() {
+    public void search() {
         System.out.println("Buscando reserva...");
     }
 
-    public List<Reserva> listar() {
+    public List<Reserva> list() {
         List<Reserva> reservas = new ArrayList<>();
         try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM reservas")) {
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -88,13 +87,29 @@ public class ReservaDAO {
     public int getLastReservaId() {
         try (PreparedStatement statement = connection.prepareStatement(
                 "SELECT MAX(id) FROM RESERVAS")) {
-
             try (statement) {
-                ResultSet resultSet = statement.executeQuery();
-                resultSet.next();
-                return resultSet.getInt(1);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    resultSet.next();
+                    return resultSet.getInt(1);
+                }
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public boolean reservationHasHost(Integer idReserva) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT COUNT(*) FROM huespedes WHERE id_reserva = ?")) {
+            try (statement) {
+                statement.setInt(1, idReserva);
+
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    resultSet.next();
+                    int count = resultSet.getInt(1);
+                    return count > 0;
+                }
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

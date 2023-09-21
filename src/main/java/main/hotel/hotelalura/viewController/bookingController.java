@@ -56,7 +56,7 @@ public class bookingController implements Initializable, validator {
         Reserva reserva = new Reserva(dateIn, dateOut, Double.valueOf(value), wayToPay);
 
         ReservaController reservaController = new ReservaController();
-        reservaController.guardar(reserva);
+        reservaController.save(reserva);
 
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/host-view.fxml", btn_register);
     }

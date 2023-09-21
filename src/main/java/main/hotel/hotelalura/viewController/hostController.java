@@ -52,13 +52,13 @@ public class hostController implements Initializable, validator {
         Huespede huespede = new Huespede(name, lastName, birthDay, nationality, number, id_reserva);
 
         HuespedeController huespedeController = new HuespedeController();
-        huespedeController.guardar(huespede);
+        huespedeController.save(huespede);
 
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/infoTable-view.fxml", btn_register);
     }
 
     private void backToBooking() {
-        reservaController.eliminar(id_reserva);
+        reservaController.delete(id_reserva);
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/booking-view.fxml", btn_back);
     }
 

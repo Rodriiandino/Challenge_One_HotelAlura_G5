@@ -15,23 +15,23 @@ public class HuespedeController {
             this.huespedeDAO = new HuespedeDAO(factory.getConnection());
         }
 
-        public void guardar(Huespede huespede) {
-            huespedeDAO.guardar(huespede);
+        public void save(Huespede huespede) {
+            huespedeDAO.save(huespede);
         }
 
-        public void actualizar() {
-            huespedeDAO.actualizar();
+        public void update() {
+            huespedeDAO.update();
         }
 
-        public void eliminar() {
-            huespedeDAO.eliminar();
+        public void delete(Integer id) {
+            huespedeDAO.delete(id);
         }
 
-        public void buscar() {
-            huespedeDAO.buscar();
+        public void search() {
+            huespedeDAO.search();
         }
 
-        public List<Huespede> listar() {
-            return huespedeDAO.listar();
+        public List<Huespede> list() {
+            return huespedeDAO.list();
         }
 }

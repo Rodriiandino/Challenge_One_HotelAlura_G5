@@ -15,7 +15,7 @@ public class HuespedeDAO {
     }
 
 
-    public void guardar(Huespede huespede) {
+    public void save(Huespede huespede) {
         try (PreparedStatement statement = connection.prepareStatement(
     "INSERT INTO HUESPEDES"
             + "(nombre, apellido, fecha_nacimiento, nacionalidad, telefono, id_reserva)"
@@ -44,19 +44,28 @@ public class HuespedeDAO {
         }
     }
 
-    public void actualizar() {
+    public void update() {
         System.out.println("Actualizando huespede...");
     }
 
-    public void eliminar() {
-        System.out.println("Eliminando huespede...");
+    public void delete(Integer id) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "DELETE FROM HUESPEDES WHERE id = ?")) {
+            try (statement) {
+                statement.setLong(1, id);
+                statement.execute();
+                System.out.printf("Fue eliminado el huespede con id: %d%n", id);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void buscar() {
+    public void search() {
         System.out.println("Buscando huespede...");
     }
 
-    public List<Huespede> listar() {
+    public List<Huespede> list() {
         List<Huespede> huespedes = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM huespedes")) {
             try (ResultSet resultSet = statement.executeQuery()) {

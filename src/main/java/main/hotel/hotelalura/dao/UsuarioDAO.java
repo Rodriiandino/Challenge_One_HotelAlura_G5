@@ -17,7 +17,7 @@ public class UsuarioDAO {
         System.out.println("Iniciando sesión...");
     }
 
-    public void guardar(Usuario usuario) {
+    public void save(Usuario usuario) {
         try(PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO usuarios "
                         + "(nombre, apellido, email, nombre_usuario, password)"
@@ -43,15 +43,7 @@ public class UsuarioDAO {
         }
     }
 
-    public void eliminar() {
-        System.out.println("Eliminando usuario...");
-    }
-
-    public void actualizar() {
-        System.out.println("Actualizando usuario...");
-    }
-
-    public List<String> listarEmails() {
+    public List<String> listEmails() {
         List<String> emails = new  ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(
                 "SELECT email FROM usuarios")) {
@@ -64,5 +56,20 @@ public class UsuarioDAO {
             throw new RuntimeException(e);
         }
         return emails;
+    }
+
+    public List<String> listUsers() {
+        List<String> usuarios = new  ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT nombre_usuario FROM usuarios")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    usuarios.add(resultSet.getString("nombre_usuario"));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuarios;
     }
 }

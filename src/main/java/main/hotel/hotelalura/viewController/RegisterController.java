@@ -55,7 +55,7 @@ public class RegisterController implements Initializable, validator {
 
         Usuario usuario = new Usuario(name, lastName, email, user, password);
 
-        usuarioController.guardar(usuario);
+        usuarioController.save(usuario);
 
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/menu-view.fxml", btn_register);
     }
@@ -70,7 +70,11 @@ public class RegisterController implements Initializable, validator {
         boolean isRepeatPasswordValid = !input_repeatPassword.getText().isEmpty() && input_repeatPassword.getText().length() > 3 && input_repeatPassword.getText().length() < 20;
         boolean isRepeatPasswordEqualsPassword = input_repeatPassword.getText().equals(input_password.getText());
 
-        List<String> emails = usuarioController.listarEmails();
+
+        List<String> usuarios = usuarioController.listUsers();
+        boolean isUserAlreadyRegistered = usuarios.contains(input_user.getText());
+
+        List<String> emails = usuarioController.listEmails();
         boolean isEmailAlreadyRegistered = emails.contains(input_email.getText());
 
 
@@ -79,12 +83,13 @@ public class RegisterController implements Initializable, validator {
         else if(!isGmailValid) text_error.setText("Gmail invalido");
         else if(isEmailAlreadyRegistered) text_error.setText("El email ya esta registrado");
         else if(!isUserValid) text_error.setText("Usuario invalido (min 3 caracteres, max 20) y no puede estar vacio");
+        else if(isUserAlreadyRegistered) text_error.setText("El usuario ya esta registrado");
         else if(!isPasswordValid) text_error.setText("Contraseña invalida (min 3 caracteres, max 20) y no puede estar vacio");
         else if(!isRepeatPasswordValid) text_error.setText("Repita la contraseña (min 3 caracteres, max 20) y no puede estar vacio");
         else if(!isRepeatPasswordEqualsPassword) text_error.setText("Las contraseñas no coinciden");
         else text_error.setText("");
 
-        boolean allFieldsValid = isNameValid && isLastNameValid && isGmailValid && isUserValid && isPasswordValid && isRepeatPasswordValid && isRepeatPasswordEqualsPassword && !isEmailAlreadyRegistered;
+        boolean allFieldsValid = isNameValid && isLastNameValid && isGmailValid && isUserValid && isPasswordValid && isRepeatPasswordValid && isRepeatPasswordEqualsPassword && !isEmailAlreadyRegistered && !isUserAlreadyRegistered;
 
         btn_register.setDisable(!allFieldsValid);
     }
@@ -98,6 +103,5 @@ public class RegisterController implements Initializable, validator {
         input_password.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
         input_repeatPassword.textProperty().addListener((observable, oldValue, newValue) -> validateFields());
     }
-
 
 }

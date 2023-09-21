@@ -15,28 +15,32 @@ public class ReservaController {
         this.reservaDAO = new ReservaDAO(factory.getConnection());
     }
 
-    public void guardar(Reserva reserva) {
-        reservaDAO.guardar(reserva);
+    public void save(Reserva reserva) {
+        reservaDAO.save(reserva);
     }
 
-    public void actualizar() {
-        reservaDAO.actualizar();
+    public void update() {
+        reservaDAO.update();
     }
 
-    public void eliminar(long id) {
-        reservaDAO.eliminar(id);
+    public void delete(Integer id) {
+        reservaDAO.delete(id);
     }
 
-    public void buscar() {
-        reservaDAO.buscar();
+    public void search() {
+        reservaDAO.search();
     }
 
-    public List<Reserva> listar() {
-        return reservaDAO.listar();
+    public List<Reserva> list() {
+        return reservaDAO.list();
     }
 
     public int getLastReservaId() {
         return reservaDAO.getLastReservaId();
+    }
+
+    public boolean reservationHasHost(Integer id) {
+        return reservaDAO.reservationHasHost(id);
     }
 
 }

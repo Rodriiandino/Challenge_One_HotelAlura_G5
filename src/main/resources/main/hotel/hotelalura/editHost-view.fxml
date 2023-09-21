@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.hostController">
+   <children>
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="80.0" minHeight="40.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane GridPane.rowIndex="1">
+               <children>
+                  <Pane styleClass="background-tertiary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane>
+               <children>
+                  <GridPane styleClass="background-primary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="355.0" prefWidth="425.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="195.0" prefWidth="275.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Pane layoutX="8.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" styleClass="background-secondary" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="520.0" prefWidth="425.0">
+                                       <children>
+                                          <ImageView disable="true" fitHeight="289.0" fitWidth="292.0" layoutX="68.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="231.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.49066162109375" AnchorPane.topAnchor="0.0">
+                                             <image>
+                                                <Image url="@src/assets/logo.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="301.0" fitWidth="383.0" layoutX="14.0" layoutY="219.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="219.0">
+                                             <image>
+                                                <Image url="@src/assets/registro-huesped.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children></Pane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane>
+                           <children>
+                              <VBox prefWidth="448.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox>
+                                       <VBox.margin>
+                                          <Insets bottom="30.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label prefHeight="43.0" prefWidth="379.0" styleClass="text" text="HUÉSPE A EDITAR: ID-">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="text_id" styleClass="text" text="N°">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane prefHeight="32.0" prefWidth="486.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="273.0" minWidth="10.0" prefWidth="266.3333435058594" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label styleClass="text" text="NOMBRE">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label styleClass="text" text="APELLIDO" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="35.0" prefWidth="494.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="input_name" prefHeight="35.0" prefWidth="100.0" promptText="Rodrigo" styleClass="input">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="input_lastName" prefHeight="35.0" prefWidth="130.0" promptText="Andino" styleClass="input" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="25.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="32.0" prefWidth="531.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="277.3333435058594" minWidth="10.0" prefWidth="269.3333435058594" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label styleClass="text" text="F. DE NACIMIENTO">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label styleClass="text" text="NACIONALIDAD" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="35.0" prefWidth="486.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.33331298828125" minWidth="10.0" prefWidth="240.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.6666564941406" minWidth="10.0" prefWidth="265.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <DatePicker fx:id="input_birth" blendMode="DARKEN" editable="false" prefHeight="35.0" prefWidth="250.0" promptText="2003-02-02" styleClass="input" />
+                                                <ChoiceBox fx:id="input_nationality" prefHeight="35.0" prefWidth="265.0" styleClass="input" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="25.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="32.0" prefWidth="499.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="240.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.33331298828125" minWidth="10.0" prefWidth="268.33331298828125" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label prefHeight="32.0" prefWidth="217.0" styleClass="text" text="Telefono">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label styleClass="text" text="N° De RESERVA" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="35.0" prefWidth="474.0">
+                                       <children>
+                                          <GridPane hgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="input_number" prefHeight="35.0" prefWidth="100.0" promptText="123456789" styleClass="input" />
+                                                <TextField fx:id="input_booking" editable="false" prefHeight="35.0" prefWidth="130.0" promptText="26953" styleClass="input" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="25.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <HBox spacing="16.0">
+                                       <children>
+                                          <Button fx:id="btn_register" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="EDITAR" />
+                                          <Button fx:id="btn_back" mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="CANCELAR" />
+                                       </children>
+                                    </HBox>
+                                    <Label fx:id="text_error" prefHeight="15.0" prefWidth="659.0" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

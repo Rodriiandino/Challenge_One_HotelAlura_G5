@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS huespedes (
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT NOT NULL AUTO_INCREMENT,
-    nombre_usuario VARCHAR(255) NOT NULL,
+    nombre_usuario VARCHAR(255) NOT NULL UNIQUE,
     nombre VARCHAR(255) NOT NULL,
     apellido VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,

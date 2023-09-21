@@ -19,19 +19,15 @@ public class UsuarioController {
         usuarioDAO.login();
     }
 
-    public void guardar(Usuario usuario) {
-        usuarioDAO.guardar(usuario);
+    public void save(Usuario usuario) {
+        usuarioDAO.save(usuario);
     }
 
-    public void eliminar() {
-        usuarioDAO.eliminar();
+    public List<String> listEmails() {
+        return usuarioDAO.listEmails();
     }
 
-    public void actualizar() {
-        usuarioDAO.actualizar();
-    }
-
-    public List<String> listarEmails() {
-        return usuarioDAO.listarEmails();
+    public List<String> listUsers() {
+        return usuarioDAO.listUsers();
     }
 }
