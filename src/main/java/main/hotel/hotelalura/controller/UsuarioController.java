@@ -15,8 +15,8 @@ public class UsuarioController {
         this.usuarioDAO = new UsuarioDAO(factory.getConnection());
     }
 
-    public void login() {
-        usuarioDAO.login();
+    public boolean login(Usuario usuario) {
+        return usuarioDAO.login(usuario);
     }
 
     public void save(Usuario usuario) {

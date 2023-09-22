@@ -1,6 +1,6 @@
 package main.hotel.hotelalura.utils;
 
-public interface validator {
+public interface Validator {
 
     public void addValidators();
 

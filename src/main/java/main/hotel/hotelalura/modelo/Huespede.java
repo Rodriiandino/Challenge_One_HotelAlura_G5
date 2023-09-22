@@ -12,23 +12,32 @@ public class Huespede implements EntidadHotel {
     private String telefono;
     private Integer id_reserva;
 
-    public Huespede(String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono, Integer id_reserva) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-        this.id_reserva = id_reserva;
+    public Huespede(String name, String lastName, String birthDay, String nationality, String number, Integer id_booking) {
+        this.nombre = name;
+        this.apellido = lastName;
+        this.fecha_nacimiento = birthDay;
+        this.nacionalidad = nationality;
+        this.telefono = number;
+        this.id_reserva = id_booking;
     }
 
-    public Huespede(Integer id, String nombre, String apellido, String fecha_nacimiento, String nacionalidad, String telefono, Integer id_reserva) {
+    public Huespede(Integer id, String name, String lastName, String birthDay, String nationality, String number, Integer id_booking) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.nacionalidad = nacionalidad;
-        this.telefono = telefono;
-        this.id_reserva = id_reserva;
+        this.nombre = name;
+        this.apellido = lastName;
+        this.fecha_nacimiento = birthDay;
+        this.nacionalidad = nationality;
+        this.telefono = number;
+        this.id_reserva = id_booking;
+    }
+
+    public Huespede(Integer id, String name, String lastName, String birthDay, String nationality, String number) {
+        this.id = id;
+        this.nombre = name;
+        this.apellido = lastName;
+        this.fecha_nacimiento = birthDay;
+        this.nacionalidad = nationality;
+        this.telefono = number;
     }
 
     @Override
@@ -82,22 +91,6 @@ public class Huespede implements EntidadHotel {
 
     public void setApellido(String apellido){
         this.apellido = apellido;
-    }
-
-    public void setFecha_nacimiento(String fecha_nacimiento){
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
-
-    public void setNacionalidad(String nacionalidad){
-        this.nacionalidad = nacionalidad;
-    }
-
-    public void setTelefono(String telefono){
-        this.telefono = telefono;
-    }
-
-    public void setId_reserva(Integer id_reserva){
-        this.id_reserva = id_reserva;
     }
 
 }

@@ -83,7 +83,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField prefHeight="35.0" promptText="admin" styleClass="input">
+                                    <TextField fx:id="input_user" prefHeight="35.0" promptText="admin" styleClass="input">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -91,7 +91,7 @@
                                           <Insets bottom="25.0" right="190.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label styleClass="text" text="GMAIL">
+                                    <Label prefHeight="32.0" prefWidth="98.0" styleClass="text" text="EMAIL">
                                        <font>
                                           <Font size="26.0" />
                                        </font>
@@ -99,7 +99,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField prefHeight="35.0" promptText="admin@gmail.com" styleClass="input">
+                                    <TextField fx:id="input_email" prefHeight="35.0" promptText="admin@gmail.com" styleClass="input">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -115,7 +115,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <PasswordField prefHeight="35.0" promptText="admin" styleClass="input">
+                                    <PasswordField fx:id="input_password" prefHeight="35.0" promptText="admin" styleClass="input">
                                        <VBox.margin>
                                           <Insets bottom="25.0" right="190.0" />
                                        </VBox.margin>
@@ -123,7 +123,12 @@
                                           <Font size="16.0" />
                                        </font>
                                     </PasswordField>
-                                    <Button fx:id="btn_in" mnemonicParsing="false" prefHeight="50.0" prefWidth="325.0" text="ENTRAR" />
+                                    <Button fx:id="btn_in" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="325.0" text="ENTRAR" />
+                                    <Label fx:id="text_error" textFill="RED">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <padding>
                                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

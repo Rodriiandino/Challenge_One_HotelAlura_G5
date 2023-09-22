@@ -19,16 +19,16 @@ public class HuespedeController {
             huespedeDAO.save(huespede);
         }
 
-        public void update() {
-            huespedeDAO.update();
+        public void update(Huespede huespede) {
+            huespedeDAO.update(huespede);
         }
 
         public void delete(Integer id) {
             huespedeDAO.delete(id);
         }
 
-        public void search() {
-            huespedeDAO.search();
+        public List<Huespede> search(String lastName) {
+            return huespedeDAO.search(lastName);
         }
 
         public List<Huespede> list() {

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.infoTableController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@global.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.hotel.hotelalura.viewController.InfoTableController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -61,12 +61,12 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <TextField prefHeight="45.0" prefWidth="190.0" styleClass="input">
+                              <TextField fx:id="input_search" prefHeight="45.0" prefWidth="190.0" promptText="Reserva: ID / Usuario: Apellido" styleClass="input">
                                  <HBox.margin>
                                     <Insets left="220.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Buscar" />
+                              <Button fx:id="btn_search" mnemonicParsing="false" prefHeight="45.0" prefWidth="130.0" text="Buscar" />
                            </children>
                            <VBox.margin>
                               <Insets left="20.0" right="20.0" />

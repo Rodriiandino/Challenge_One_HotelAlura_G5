@@ -41,8 +41,22 @@ public class ReservaDAO {
         }
     }
 
-    public void update() {
-        System.out.println("Actualizando reserva...");
+    public void update(Reserva reserva) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                "UPDATE RESERVAS SET fecha_entrada = ?, fecha_salida = ?, valor = ?, forma_pago = ? WHERE id = ?")) {
+            try (statement) {
+                statement.setString(1, reserva.getFecha_entrada());
+                statement.setString(2, reserva.getFecha_salida());
+                statement.setDouble(3, reserva.getValor());
+                statement.setString(4, reserva.getForma_pago());
+                statement.setInt(5, reserva.getId());
+                statement.execute();
+                System.out.printf("Fue actualizada la reserva: %s%n", reserva);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void delete(Integer id) {
@@ -59,8 +73,28 @@ public class ReservaDAO {
         }
     }
 
-    public void search() {
-        System.out.println("Buscando reserva...");
+    public List<Reserva> search(String id) {
+        List<Reserva> reservas = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT * FROM RESERVAS WHERE id LIKE ?")) {
+            try (statement) {
+                statement.setString(1, id + "%");
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        reservas.add(new Reserva(
+                                resultSet.getInt("id"),
+                                resultSet.getString("fecha_entrada"),
+                                resultSet.getString("fecha_salida"),
+                                resultSet.getDouble("valor"),
+                                resultSet.getString("forma_pago")
+                        ));
+                    }
+                }
+            }
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+        return reservas;
     }
 
     public List<Reserva> list() {

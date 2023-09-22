@@ -19,14 +19,18 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class infoTableController implements Initializable {
+public class InfoTableController implements Initializable {
     public Button btn_host;
     public Button btn_booking;
+
     public Button btn_back;
     public Button btn_edit;
     public Button btn_remove;
 
     public TableView<EntidadHotel> table;
+    public TextField input_search;
+    public Button btn_search;
+
     private HuespedeController huespedeController;
     private ReservaController reservaController;
     private TableDataType currentTableDataType = TableDataType.HUESPEDE;
@@ -45,7 +49,12 @@ public class infoTableController implements Initializable {
 
         btn_host.setOnAction(event -> changeToHost());
         btn_booking.setOnAction(event -> changeToBooking());
+
         btn_remove.setOnAction(event -> delete());
+        btn_edit.setOnAction(event -> edit());
+        input_search.setOnKeyTyped(event -> search());
+        btn_search.setOnAction(event -> search());
+
         btn_back.setOnAction(e -> ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/menu-view.fxml", btn_back));
     }
 
@@ -127,7 +136,7 @@ public class infoTableController implements Initializable {
         }
     }
 
-    public void changeToBooking() {
+    private void changeToBooking() {
         btn_booking.setStyle("-fx-background-color: #3D7A5D");
         btn_host.setStyle("-fx-background-color: #638A77");
         currentTableDataType = TableDataType.RESERVA;
@@ -135,7 +144,7 @@ public class infoTableController implements Initializable {
         listar();
     }
 
-    public void changeToHost() {
+    private void changeToHost() {
         btn_host.setStyle("-fx-background-color: #3D7A5D");
         btn_booking.setStyle("-fx-background-color: #638A77");
         currentTableDataType = TableDataType.HUESPEDE;
@@ -143,7 +152,7 @@ public class infoTableController implements Initializable {
         listar();
     }
 
-    public void delete() {
+    private void delete() {
         if (currentTableDataType == TableDataType.HUESPEDE) {
             Huespede selectedHuespede = (Huespede) table.getSelectionModel().getSelectedItem();
             if (selectedHuespede != null) {
@@ -193,4 +202,54 @@ public class infoTableController implements Initializable {
 
         return result.isPresent() && result.get() == buttonTypeYes;
     }
+
+    private void edit() {
+    if (currentTableDataType == TableDataType.HUESPEDE) {
+            Huespede selectedHuespede = (Huespede) table.getSelectionModel().getSelectedItem();
+            if (selectedHuespede != null) {
+                ScreenTransitionUtil.showScreenEditHost(this, "/main/hotel/hotelalura/editHost-view.fxml", selectedHuespede, btn_edit);
+            }
+        } else if (currentTableDataType == TableDataType.RESERVA) {
+            Reserva selectedReserva = (Reserva) table.getSelectionModel().getSelectedItem();
+            if (selectedReserva != null) {
+                ScreenTransitionUtil.showScreenEditBooking(this, "/main/hotel/hotelalura/editBooking-view.fxml", selectedReserva, btn_edit);
+            }
+        }
+    }
+
+    private void search() {
+        if (currentTableDataType == TableDataType.HUESPEDE) {
+            String lastName = input_search.getText();
+            if (lastName != null && !lastName.isEmpty()) {
+                List<Huespede> huespedes = huespedeController.search(lastName.toLowerCase());
+                ObservableList<EntidadHotel> huespedeList = FXCollections.observableArrayList();
+                huespedeList.addAll(huespedes);
+                table.setItems(huespedeList);
+            } else {
+                listar();
+            }
+        } else if (currentTableDataType == TableDataType.RESERVA) {
+            String idBooking = input_search.getText();
+            if (idBooking != null && !idBooking.isEmpty() && idBooking.matches("[0-9]+")){
+                List<Reserva> reservas = reservaController.search(idBooking);
+                ObservableList<EntidadHotel> reservaList = FXCollections.observableArrayList();
+                reservaList.addAll(reservas);
+                table.setItems(reservaList);
+            } else if (idBooking == null || idBooking.isEmpty()) {
+                listar();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error al buscar reserva");
+                alert.setHeaderText("No se puede buscar la reserva");
+                alert.setContentText("El id de la reserva debe ser un numero");
+
+                alert.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/main/hotel/hotelalura/delete.css")).toExternalForm());
+
+                alert.showAndWait();
+                input_search.setText("");
+                listar();
+            }
+        }
+    }
+
 }

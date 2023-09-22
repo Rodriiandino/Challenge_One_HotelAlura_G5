@@ -49,32 +49,17 @@ public class Reserva implements EntidadHotel {
         return fecha_entrada;
     }
 
-    public void setFecha_entrada(String fecha_entrada) {
-        this.fecha_entrada = fecha_entrada;
-    }
-
     public String getFecha_salida() {
         return fecha_salida;
-    }
-
-    public void setFecha_salida(String fecha_salida) {
-        this.fecha_salida = fecha_salida;
     }
 
     public Double getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
     public String getForma_pago() {
         return forma_pago;
     }
 
-    public void setForma_pago(String forma_pago) {
-        this.forma_pago = forma_pago;
-    }
 }
 

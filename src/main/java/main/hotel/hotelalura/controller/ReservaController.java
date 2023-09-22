@@ -19,16 +19,16 @@ public class ReservaController {
         reservaDAO.save(reserva);
     }
 
-    public void update() {
-        reservaDAO.update();
+    public void update(Reserva reserva) {
+        reservaDAO.update(reserva);
     }
 
     public void delete(Integer id) {
         reservaDAO.delete(id);
     }
 
-    public void search() {
-        reservaDAO.search();
+    public List<Reserva> search(String id) {
+        return reservaDAO.search(id);
     }
 
     public List<Reserva> list() {

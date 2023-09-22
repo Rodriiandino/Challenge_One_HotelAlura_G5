@@ -13,8 +13,25 @@ public class UsuarioDAO {
         this.connection = connection;
     }
 
-    public void login() {
-        System.out.println("Iniciando sesión...");
+    public boolean login(Usuario usuario) {
+        boolean isUserRegister = false;
+        try (PreparedStatement statement = connection.prepareStatement(
+                "SELECT * FROM usuarios WHERE nombre_usuario = ? AND email = ? AND password = ? ")) {
+            statement.setString(1, usuario.getNombre_usuario());
+            statement.setString(2, usuario.getEmail());
+            statement.setString(3, usuario.getPassword());
+
+            statement.execute();
+
+            try (ResultSet resultSet = statement.getResultSet()) {
+                if (resultSet.next()) {
+                    isUserRegister = true;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return isUserRegister;
     }
 
     public void save(Usuario usuario) {
