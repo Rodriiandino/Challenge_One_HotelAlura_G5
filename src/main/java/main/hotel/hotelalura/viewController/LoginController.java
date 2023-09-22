@@ -41,8 +41,8 @@ public class LoginController implements Initializable, Validator {
     }
 
     private void login() {
-        String user = input_user.getText();
-        String email = input_email.getText();
+        String user = input_user.getText().toLowerCase();
+        String email = input_email.getText().toLowerCase();
         String password = input_password.getText();
 
         Usuario usuario = new Usuario(user, email, password);
@@ -62,7 +62,6 @@ public class LoginController implements Initializable, Validator {
             alert.showAndWait();
         }
     }
-
 
     @Override
     public void validateFields() {

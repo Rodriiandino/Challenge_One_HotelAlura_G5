@@ -87,7 +87,7 @@
                                                       <Font size="26.0" />
                                                    </font>
                                                 </Label>
-                                                <DatePicker fx:id="input_dateIn" blendMode="DARKEN" editable="false" prefHeight="40.0" prefWidth="325.0" promptText="2023-08-23" style="-fx-border-style: 0;" styleClass="input" />
+                                                <DatePicker fx:id="input_dateIn" blendMode="DARKEN" editable="false" prefHeight="40.0" prefWidth="325.0" promptText="2023-08-23" styleClass="input" />
                                              </children>
                                           </VBox>
                                        </children>

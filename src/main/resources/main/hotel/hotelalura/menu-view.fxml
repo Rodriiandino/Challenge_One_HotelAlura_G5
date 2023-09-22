@@ -144,7 +144,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane>
                                                    <children>
-                                                      <Label prefHeight="50.0" prefWidth="700.0" styleClass="text-secondary" text="Hoy es: **/**/****" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <Label fx:id="text_day" prefHeight="50.0" prefWidth="700.0" styleClass="text-secondary" text="Hoy es: " textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <font>
                                                             <Font size="28.0" />
                                                          </font>
@@ -155,7 +155,69 @@
                                           </VBox>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="380.0" prefWidth="700.0" />
+                                    <AnchorPane prefHeight="380.0" prefWidth="700.0">
+                                       <children>
+                                          <VBox layoutX="202.0" layoutY="48.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label styleClass="text" text="Bienvenidos">
+                                                   <font>
+                                                      <Font size="29.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="49.0" prefWidth="713.0" styleClass="text" text="Este Proyecto es un sistema de gestios hotelera, en el cual fue realizado con:" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="20.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="27.0" prefWidth="655.0" styleClass="text" text="JavaFX: Para la interfaz de usuario." wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="27.0" prefWidth="680.0" styleClass="text" text="Java y la JDBC: Para la lógica de negocios y la interacción con la base de datos." wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="26.0" prefWidth="680.0" styleClass="text" text="MySQL: Como sistema de gestión de bases de datos." wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="93.0" prefWidth="680.0" styleClass="text" text="En este proyecto se uso una arquitera que se asemeja con MVC (Model-View-Controller). Con la diferencia de que utlizamos un DAO(Data Access Object) que se utiliza para encapsulate las operaciones de lectura y escritura en la base de datos." wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label prefHeight="79.0" prefWidth="680.0" styleClass="text" text="En este proyecto se puede, registrar usuarios, huéspedes y reservas, como también, listar en una tabla, buscar, actualizar y eliminar a los huéspedes como las reservas." wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="19.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children></AnchorPane>
                                  </children>
                               </VBox>
                            </children>

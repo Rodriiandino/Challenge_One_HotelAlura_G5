@@ -2,6 +2,7 @@ package main.hotel.hotelalura.viewController;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import main.hotel.hotelalura.utils.ScreenTransitionUtil;
 
 import java.net.URL;
@@ -12,6 +13,7 @@ public class MenuController implements Initializable {
     public Button btn_infoTable;
     public Button btn_exit;
     public Button btn_addUser;
+    public Label text_day;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -19,6 +21,9 @@ public class MenuController implements Initializable {
     }
 
     private void setupListeners() {
+
+        text_day.setText("Hoy es: " + getDay());
+
         btn_booking.setOnAction(e -> {
             ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/booking-view.fxml", btn_booking);
         });
@@ -40,5 +45,7 @@ public class MenuController implements Initializable {
         ScreenTransitionUtil.changeScreen(this, "/main/hotel/hotelalura/login-view.fxml", btn_exit);
     }
 
-
+    private String getDay() {
+        return java.time.LocalDate.now().toString();
+    }
 }
